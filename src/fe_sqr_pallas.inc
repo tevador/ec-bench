@@ -67,9 +67,8 @@ adox   r9, rcx
 mulx   rcx, rax, qword ptr [pallas_p1+REG_REL]
 adcx   r9, rax
 adox   r10, rcx
-mulx   rcx, rax, qword ptr [pallas_p2+REG_REL]
-adcx   r10, rax
-adox   r11, rcx
+adcx   r10, rsi ;# zero
+adox   r11, rsi ;# zero
 mulx   rcx, rax, qword ptr [pallas_p3+REG_REL]
 adcx   r11, rax
 adox   r12, rcx
@@ -90,9 +89,8 @@ adox   r10, rcx
 mulx   rcx, rax, qword ptr [pallas_p1+REG_REL]
 adcx   r10, rax
 adox   r11, rcx
-mulx   rcx, rax, qword ptr [pallas_p2+REG_REL]
-adcx   r11, rax
-adox   r12, rcx
+adcx   r11, rsi ;# zero
+adox   r12, rsi ;# zero
 mulx   rcx, rax, qword ptr [pallas_p3+REG_REL]
 adcx   r12, rax
 adox   r13, rcx
@@ -111,9 +109,8 @@ adox   r11, rcx
 mulx   rcx, rax, qword ptr [pallas_p1+REG_REL]
 adcx   r11, rax
 adox   r12, rcx
-mulx   rcx, rax, qword ptr [pallas_p2+REG_REL]
-adcx   r12, rax
-adox   r13, rcx
+adcx   r12, rsi ;# zero
+adox   r13, rsi ;# zero
 mulx   rcx, rax, qword ptr [pallas_p3+REG_REL]
 adcx   r13, rax
 adox   r14, rcx
@@ -130,9 +127,8 @@ adox   r12, rcx
 mulx   rcx, rax, qword ptr [pallas_p1+REG_REL]
 adcx   r12, rax
 adox   r13, rcx
-mulx   rcx, rax, qword ptr [pallas_p2+REG_REL]
-adcx   r13, rax
-adox   r14, rcx
+adcx   r13, rsi ;# zero
+adox   r14, rsi ;# zero
 mulx   rcx, rax, qword ptr [pallas_p3+REG_REL]
 adcx   r14, rax
 adox   r15, rcx
@@ -146,7 +142,7 @@ mov    r10, r14
 mov    r11, r15
 sub    r8, qword ptr [pallas_p0+REG_REL]
 sbb    r9, qword ptr [pallas_p1+REG_REL]
-sbb    r10, qword ptr [pallas_p2+REG_REL]
+sbb    r10, 0 ;# pallas_p2
 sbb    r11, qword ptr [pallas_p3+REG_REL]
 bt     r11, 63
 cmovb  r8, r12
